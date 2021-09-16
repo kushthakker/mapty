@@ -1,0 +1,321 @@
+:root {
+  --color-brand--1: #ffb545;
+  --color-brand--2: #00c46a;
+
+  --color-dark--1: #2d3439;
+  --color-dark--2: #42484d;
+  --color-light--1: #aaa;
+  --color-light--2: #ececec;
+  --color-light--3: rgb(214, 222, 224);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Manrope", sans-serif;
+  color: var(--color-light--2);
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1.7fr 3fr;
+  padding: 2.5rem;
+  height: 100vh;
+  overscroll-behavior-y: none;
+  z-index: 1;
+}
+
+#map {
+  z-index: 1;
+}
+
+.info {
+  background: #323232;
+  padding: 5rem;
+  display: grid;
+  grid-template-rows: auto auto 1fr;
+  justify-items: center;
+  gap: 20px;
+  max-height: 100%;
+  overflow: scroll;
+  position: relative;
+}
+
+.info-logo img {
+  height: 5.2rem;
+  margin-bottom: 4rem;
+}
+
+.btn-clear {
+  position: absolute;
+  right: 1rem;
+}
+
+.submission {
+  background: var(--color-dark--2);
+  padding: 20px;
+  display: none;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 10px;
+  width: 100%;
+  border-radius: 5px;
+  animation: fadein 1.5s;
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+    transform: translateY(20%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.submission > * label {
+  padding-right: 10px;
+  font-size: 1.5rem;
+}
+
+.form__imput,
+.dropdown {
+  width: 8rem;
+  border: none;
+  border-radius: 2px;
+  padding: 5px 10px;
+  opacity: 0.7;
+}
+
+.form__imput:focus {
+  opacity: 1;
+}
+
+.dropdown {
+  position: relative;
+  left: 25px;
+}
+
+.logs {
+  display: grid;
+  gap: 20px;
+  grid-auto-flow: row;
+  grid-auto-rows: 90px;
+  width: 100%;
+}
+
+.log {
+  background: var(--color-dark--2);
+  padding: 1.5rem 2rem;
+  display: grid;
+  grid-template-rows: repeat(2, 1fr);
+  gap: 5px;
+  border-radius: 5px;
+  padding-left: 4rem;
+  /* border-left: 5px solid green; */
+  align-items: center;
+  transition: 0.5s;
+}
+
+.log:hover {
+  background: var(--color-light--2);
+  color: var(--color-dark--2);
+}
+
+.run-info {
+  font-size: 1.7rem;
+}
+
+.run-info:hover {
+  color: black;
+}
+
+.btn-edit {
+  margin: 5px;
+  color: white;
+  background: none;
+  font-size: 1.2rem;
+  border: none;
+  display: grid;
+  justify-self: end;
+  cursor: pointer;
+}
+
+.btn-edit:after {
+  display: block;
+  content: "";
+  border-bottom: solid 3px #019fb6;
+  transform: scaleX(0);
+  transition: transform 250ms ease-in-out;
+}
+
+.btn-edit:hover:after {
+  transform: scaleX(1);
+}
+
+.btn-edit.fromRight:after {
+  transform-origin: 100% 50%;
+}
+
+.btn-edit.fromLeft:after {
+  transform-origin: 0% 50%;
+}
+
+.log__items {
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  gap: 1px;
+}
+
+.log__items:hover {
+  color: black;
+}
+
+.log__items--result {
+  font-size: 1.6rem;
+}
+
+.log__items--result .units {
+  font-size: 1rem;
+  color: var(--color-light--1);
+  text-transform: uppercase;
+  transition: 0.5s;
+}
+
+.hidden {
+  display: none;
+}
+
+.modal {
+  /* the actual thing which show up when button is clicked */
+  position: absolute;
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 25%;
+  color: black;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 3rem;
+  border-radius: 5px;
+  box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
+  z-index: 10; /*  it means that it is on top of everything because 10 is the highest z-index rn in code*/
+}
+
+.btn {
+  cursor: pointer;
+  margin-top: 1rem;
+  padding: 0.7rem 3rem;
+  border: none;
+  outline: none;
+  border-radius: 0.7rem;
+  background-color: black;
+  color: white;
+}
+
+.btn:hover {
+  background-color: #000000;
+  color: red;
+}
+
+.btn:active {
+  background-color: #000000;
+  box-shadow: 0 2px red;
+  transform: translateY(2px);
+}
+
+.overlay {
+  /*  its the blur behind that modal and it sits between modal and body */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(5px);
+  z-index: 5; /*  body is 0 and this is 5. so it is between body and modal */
+}
+
+.loadingText {
+  font-size: 3rem;
+  color: black;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.rotate {
+  animation: rotation 2s;
+}
+
+.linear {
+  animation-timing-function: linear;
+}
+
+.infinite {
+  animation-iteration-count: infinite;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(360deg);
+  }
+}
+
+.marker {
+  background-image: url("new-icon.82dd7c47.png");
+  background-size: cover;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.mapboxgl-popup {
+  max-width: 400px;
+}
+
+.mapboxgl-popup-content {
+  font-size: 1.5rem;
+  color: black;
+  width: 200px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mapboxgl-popup-close-button {
+  font-size: 1.5rem;
+}
+
+.mapboxgl-popup-content-wrapper-running {
+  border-left: 5px solid var(--color-brand--1);
+}
+
+.mapboxgl-popup-content-wrapper-cycling {
+  border-left: 5px solid var(--color-brand--2);
+}
+
+.form__input-to {
+  font-size: 1.3rem;
+  width: 12rem;
+}
+
+/*# sourceMappingURL=index.8e9caef1.css.map */
