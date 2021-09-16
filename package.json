@@ -1,0 +1,24 @@
+{
+  "name": "advance",
+  "version": "1.0.0",
+  "description": "mapty-project",
+  "default": "index.html",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html --dist-dir ./dist"
+  },
+  "author": "Kush Thakker",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/preset-env": "^7.14.7",
+    "parcel": "^2.0.0-beta.2",
+    "@babel/cli": "^7.0.0",
+    "@babel/core": "^7.0.0"
+  },
+  "dependencies": {
+    "core-js": "^3.15.2",
+    "loadash": "^1.0.0",
+    "mapbox-gl": "^2.3.1",
+    "regenerator-runtime": "^0.13.7"
+  }
+}
