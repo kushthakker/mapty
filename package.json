@@ -5,7 +5,7 @@
   "default": "index.html",
   "scripts": {
     "start": "parcel index.html",
-    "build": "parcel build index.html"
+    "build": "parcel build src/index.html"
   },
   "author": "Kush Thakker",
   "license": "ISC",
@@ -13,6 +13,7 @@
     "@babel/cli": "^7.0.0",
     "@babel/core": "^7.0.0",
     "@babel/preset-env": "^7.14.7",
+    "@parcel/transformer-image": "^2.0.0-rc.0",
     "parcel": "^2.0.0-beta.2"
   },
   "dependencies": {
