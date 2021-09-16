@@ -10,10 +10,7 @@
   "author": "Kush Thakker",
   "license": "ISC",
   "devDependencies": {
-    "@babel/preset-env": "^7.14.7",
     "parcel": "^2.0.0-beta.2",
-    "@babel/cli": "^7.0.0",
-    "@babel/core": "^7.0.0",
     "@parcel/transformer-image": "^2.0.0-beta.2"
   },
   "dependencies": {
